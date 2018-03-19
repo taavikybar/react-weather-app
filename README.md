@@ -1,5 +1,7 @@
 # React Weather app
 
+#### Application retrieves and displays weather information with forecasts by searching for city or using current location
+
 ## How to use
 Clone repo and install
 
