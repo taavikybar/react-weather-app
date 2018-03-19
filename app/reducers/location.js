@@ -9,7 +9,6 @@ export default function reducer(state = {
 			city: ''
 		}
 	},
-	fetching: false,
 	fetched: false,
 	error: null
 }, action) {

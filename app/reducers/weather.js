@@ -8,7 +8,6 @@ export default function reducer(state = {
 		description: '',
 		degrees: null
 	},
-	fetching: false,
 	fetched: false,
 	error: null
 }, action) {

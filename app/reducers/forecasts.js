@@ -8,7 +8,6 @@ import { parseForecasts } from '../helpers/forecasts'
 export default function reducer(state = {
 	forecasts: [],
 	todaysForecasts: {},
-	fetching: false,
 	fetched: false,
 	error: null
 }, action) {
