@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+html, body {
+	height: 100%;
+	background: $red;
+}
+
+#app {
+	font-family: 'Roboto', sans-serif;
+	height: 100%;
+	color: $gray;
+
+	&.loaded {
+		visibility: visible;
+	}
+}
+
+#loader {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: $red;
+	z-index: 9999;
+}
+
+a {
+	color: $gray;
+	text-decoration-style: dotted;
+
+	&:hover {
+		color: $red;
+	}
+}

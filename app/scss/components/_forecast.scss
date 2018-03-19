@@ -1,0 +1,19 @@
+.forecast {
+	@include margin-bottom;
+
+	display: flex;
+
+	& dt {
+		@include padding-right(3);
+
+		flex: 1 0 auto;
+	}
+
+	& dl {
+		display: flex;
+	}
+
+	&__degrees {
+		flex: 0 0 50px;
+	}
+}

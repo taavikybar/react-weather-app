@@ -1,0 +1,58 @@
+// Breakpoints map
+// @type Map
+$breakpoints: (
+	'mobile': (max-width: $screenMobileMax),
+	'tablet': (max-width: $screenTabletMax),
+);
+
+// Media query merger
+// Create a single media condition out of a map of queries
+// @param {Map} $queries - Map of media queries
+@mixin media($queries) {
+	@if length($queries) == 0 {
+		@content;
+	}
+
+	@else {
+		$first-key: nth(map-keys($queries), 1);
+		@media ($first-key: map-get($queries, $first-key)) {
+			$queries: map-remove($queries, $first-key);
+			@include media($queries) {
+				@content;
+			}
+		}
+	}
+}
+
+// Responsive breakpoint manager
+// @param {String} $breakpoint - Breakpoint
+// @requires $breakpoints
+@mixin mq($breakpoint) {
+	// Get the query map for $breakpoints map
+	$queries: map-get($breakpoints, $breakpoint);
+
+	// If there is no query called $breakpoint in map, throw an error
+	@if not $queries {
+		@error "No value could be retrieved from `#{$breakpoint}`. "
+			+ "Please make sure it is defined in `$breakpoints` map.";
+	}
+
+	// Include the media mixin with $queries
+	@include media($queries) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	// mobile < 768px
+	@media (max-width: #{$screenMobileMax}) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	// tablet < 1000px
+	@media (max-width: #{$screenTabletMax}) {
+		@content;
+	}
+}

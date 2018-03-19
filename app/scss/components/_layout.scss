@@ -1,0 +1,22 @@
+.layout {
+	min-height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: $red;
+
+	&__inner {
+		@include paddings(2);
+		@include margins(2);
+
+		background: #fff;
+		width: 800px;
+		height: 475px;
+		box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+
+		@include tablet() {
+			width: 100%;
+			height: auto;
+		}
+	}
+}

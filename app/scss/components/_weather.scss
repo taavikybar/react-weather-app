@@ -1,0 +1,66 @@
+.weather {
+	&__date {
+		font-size: 30px;
+		font-weight: 300;
+	}
+
+	&__description {
+		@include margin-top;
+
+		font-size: 24px;
+		font-weight: 300;
+		line-height: 1.4em;
+	}
+
+	&__current {
+		@include margin-top;
+
+		display: flex;
+
+		@include tablet() {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	}
+
+	&__current-degrees {
+		@include margin-right(3);
+
+		font-size: 120px;
+		font-weight: 400;
+		color: $red;
+
+		@include mobile() {
+			@include margin-right;
+		}
+	}
+
+	&__current-icon {
+		@include margin-right(4);
+		
+		font-size: 120px;
+		font-weight: 400;
+		color: $red;
+
+		@include mobile() {
+			@include margin-right;
+		}
+	}
+
+	&__forecasts {
+		color: $red;
+		font-size: 20px;
+		font-weight: 300;
+
+		@include mobile() {
+			@include margin-top(2);
+
+			flex: 1 0 100%;
+		}
+	}
+
+	&__forecasts-inner {
+		max-width: 200px;
+		margin: 0 auto;
+	}
+}

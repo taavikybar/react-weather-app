@@ -1,0 +1,26 @@
+.forecasts {
+	@include margin-top(2);
+
+	display: flex;
+	justify-content: space-around;
+	font-weight: 300;
+
+	@include mobile() {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	&__day {
+		@include paddings;
+
+		font-size: 14px;
+		text-align: center;
+	}
+
+	&__icon {
+		@include margin-top;
+
+		line-height: 1.8em;
+		font-size: 40px;
+	}
+}

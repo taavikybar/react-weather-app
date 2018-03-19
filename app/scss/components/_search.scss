@@ -1,0 +1,64 @@
+.search {
+	@include margins(2);
+
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&__inner {
+		flex: 0 1 500px;
+		text-align: center;
+	}
+
+	&__input-wrapper {
+		border-bottom: 2px solid $red;
+		position: relative;
+	}
+
+	&__input {
+		font-size: 40px;
+		width: 100%;
+		border: 0;
+		text-align: center;
+		color: $gray;
+		outline: 0;
+		font-weight: 600;
+
+		&::placeholder {
+			color: $lightGray;
+		}
+	}
+
+	&__button {
+		position: absolute;
+		right: -1px;
+		top: 0;
+		z-index: 2;
+		width: 40px;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-decoration: none;
+		background: #fff;
+
+		& i {
+			font-size: 36px;
+		}
+	}
+
+	&__error {
+		@include margin-top;
+		@include margin-bottom(0.5);
+
+		min-height: 20px;
+		color: $red;
+	}
+
+	&__location {
+		@include margin-top;
+
+		font-size: 20px;
+	}
+}

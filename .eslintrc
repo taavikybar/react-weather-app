@@ -1,0 +1,18 @@
+{
+	"rules": {
+	  "mocha/no-hooks": 0,
+	  "react/prefer-stateless-function": 0,
+	  "no-invalid-this": 0,
+	  "prefer-rest-params": "off",
+	  "no-warning-comments": "off",
+	  "quote-props": ["error", "as-needed"],
+	  "one-var": "off",
+	  "no-shadow": ["error", { "builtinGlobals": true, "allow": ["location"] }],
+	  "semi": ["error", "never"]
+	},
+	"parser": "babel-eslint",
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended"
+	]
+}
