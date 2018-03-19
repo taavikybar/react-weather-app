@@ -1,3 +1,6 @@
+
+/* Reducer for actions concerning weather data */
+
 import { capitalize } from '../utils'
 
 export default function reducer(state = {

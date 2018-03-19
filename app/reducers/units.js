@@ -1,3 +1,6 @@
+
+/* Reducer for actions concerning temperature units data */
+
 export default function reducer(state = {
 	name: 'celsius',
 	symbol: 'C'

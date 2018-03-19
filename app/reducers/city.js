@@ -1,3 +1,5 @@
+/* Reducer for actions concerning city data */
+
 export default function reducer(state = {
 	city: ''
 }, action) {

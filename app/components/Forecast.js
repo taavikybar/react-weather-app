@@ -5,7 +5,6 @@ import { forecastTypes } from '../types'
 /* Components */
 import Icon from './Icon'
 
-/* Components */
 export default class Forecast extends Component {
 	render() {
 		const  { title, degrees, units, code } = this.props

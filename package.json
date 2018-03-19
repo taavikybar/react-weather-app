@@ -1,5 +1,6 @@
 {
   "name": "react-weather-app",
+  "description": "React+Redux weather app",
   "version": "1.0.0",
   "private": false,
   "main": "./app/client.js",

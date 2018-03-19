@@ -1,3 +1,5 @@
+/* Actions concerning city */
+
 export function setCity(city) {
 	return {
 		type: 'SET_CITY',

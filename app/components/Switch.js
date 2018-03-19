@@ -6,8 +6,7 @@ export default class Switch extends Component {
 		super(props)
 
 		this.state = {
-			checked: this.props.units.symbol === 'F',
-			value: 'a'
+			checked: this.props.units.symbol === 'F'
 		}
 
 		this.handleChange = this.handleChange.bind(this)
@@ -32,7 +31,6 @@ export default class Switch extends Component {
 					id={name}
 					className="switch__checkbox"
 					checked={this.state.checked}
-					value={this.state.value}
 					onChange={this.handleChange} /> 
 					
 				<label className="switch__label"

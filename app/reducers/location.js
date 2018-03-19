@@ -1,3 +1,6 @@
+
+/* Reducer for actions concerning location data */
+
 import { capitalize } from '../utils'
 
 export default function reducer(state = {
@@ -24,8 +27,6 @@ export default function reducer(state = {
 		}
 
 		case 'FETCH_LOCATION_REJECTED': {
-
-			console.log('REJECTED',payload)
 			return {
 				...state,
 				error: payload.response && payload.response.data

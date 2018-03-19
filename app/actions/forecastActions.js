@@ -1,3 +1,5 @@
+/* Actions concerning forecasts weather data */
+
 import axios from 'axios'
 import { weatherApi } from '../config'
 

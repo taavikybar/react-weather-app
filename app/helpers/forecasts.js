@@ -1,3 +1,11 @@
+/**
+ * Method takes in a collection of forecasts and an additional forecast
+ * and maps them to semantic values (morning, day, evening and night)
+ * on the return object
+ * @param {Object[]} todaysForecasts - collection of forecasts object
+ * @param {Object} nightForecast - night forecast object
+ * @return {Object} - semantically mapped daily forecast object
+ */
 export function parseForecasts(todaysForecasts, nightForecast) {
 	const daysWeather = {}
 

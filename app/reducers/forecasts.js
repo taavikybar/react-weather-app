@@ -1,3 +1,6 @@
+
+/* Reducer for actions concerning weather forecasts data */
+
 import moment from 'moment'
 import { capitalize } from '../utils'
 import { parseForecasts } from '../helpers/forecasts'

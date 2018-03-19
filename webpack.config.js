@@ -38,24 +38,12 @@ module.exports = {
 						sourceMap: true
 					}
 				}
-			],
-		}],
+			]
+		}]
 	},
 	plugins: [
 		new webpack.ProgressPlugin({
 			profile: false
-		}),
-		// new webpack.optimize.UglifyJsPlugin({
-		// 	mangle: {
-		// 		screw_ie8: true,
-		// 		keep_fnames: true
-		// 	},
-		// 	compress: {
-		// 		warnings: false,
-		// 		screw_ie8: true
-		// 	},
-		// 	comments: false,
-		// 	sourceMap: true
-		// }),
+		})
 	]
 }

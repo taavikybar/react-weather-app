@@ -4,7 +4,7 @@
 Clone repo and install
 
 ```
-npm clone
+npm clone git@github.com:taavikybar/react-weather-app.git
 npm i
 ```
 

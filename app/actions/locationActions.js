@@ -1,3 +1,6 @@
+
+/* Actions concerning location data */
+
 import axios from 'axios'
 import { geoIpApi } from '../config'
 
@@ -10,5 +13,5 @@ export function fetchLocation(handler) {
 			type: 'ERROR',
 			payload: error
 		})
-	}).then(() => handler())
+	}).then(handler)
 }

@@ -69,11 +69,17 @@ export default class Layout extends Component {
 	}
 
 	componentDidMount() {
-		const app = document.getElementById('app')
+		const app = document.getElementById('app'),
+			{ city } = this.props
 
 		setTimeout(() => {
 			app.className += 'loaded'
 		}, 100)
+
+		/* Update city weather data if city is selected in persistent storage */
+		if (city){
+			this.handleSearch(city)
+		}
 	}
 
 	render() {
