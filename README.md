@@ -23,3 +23,5 @@ npm run dev
 ```
 
 App is running at [http://localhost:4300/](http://localhost:4300/)
+
+For live demo got to [Demo page](http://weather.blkmrktdesigns.com/)

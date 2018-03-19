@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import iconsMap from '../icons/icons-map.json'
+import iconsMap from '../fixtures/icons-map.json'
 import { iconTypes } from '../types'
 
 export default class Icon extends Component {

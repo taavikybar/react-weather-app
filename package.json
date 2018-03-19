@@ -21,7 +21,7 @@
   },
   "scripts": {
     "dev": "webpack-dev-server --mode development",
-    "build": "node_modules/rimraf/bin.js build && webpack --mode production --optimize-minimize",
+    "build": "webpack --mode production --optimize-minimize",
     "start": "npm run build && http-server -p 4300"
   },
   "devDependencies": {
