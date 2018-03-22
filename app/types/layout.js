@@ -11,6 +11,6 @@ export default {
 	forecasts: PropTypes.array,
 	forecastsFetched: PropTypes.bool,
 	forecastsError: PropTypes.any,
-	dispatch: PropTypes.func,
-	forecasts: PropTypes.object
+	todaysForecasts: PropTypes.object,
+	dispatch: PropTypes.func
 }

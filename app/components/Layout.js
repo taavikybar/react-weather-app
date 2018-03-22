@@ -17,29 +17,7 @@ import Weather from './Weather'
 import Forecasts from './Forecasts'
 import Search from './Search'
 
-@connect((store) => {
-	const {
-		city,
-		weather,
-		forecasts,
-		location
-	} = store
-
-	return {
-		city: city.city,
-		location: location.location.city,
-		locationError: location.error,
-		units: store.units,
-		weather: weather.weather,
-		weatherFetched: weather.fetched,
-		weatherError: weather.error,
-		forecasts: forecasts.forecasts,
-		forecastsFetched: forecasts.fetched,
-		forecastsError: forecasts.error,
-		todaysForecasts: forecasts.todaysForecasts
-	}
-})
-export default class Layout extends Component {
+export class Layout extends Component {
 	constructor(props) {
 		super(props)
 
@@ -83,8 +61,7 @@ export default class Layout extends Component {
 	}
 
 	render() {
-		const {
-				city,
+		const {	city,
 				units,
 				weather,
 				forecasts,
@@ -102,11 +79,11 @@ export default class Layout extends Component {
 				&& city
 				&& weatherFetched
 				&& forecastsFetched
-				
+
 		return (
 			<div className="layout">
 				<div className="layout__inner">
-					{displayWeather ? 
+					{displayWeather ?
 						(
 							<React.Fragment>
 								<Navigation
@@ -138,5 +115,30 @@ export default class Layout extends Component {
 		)
 	}
 }
+
+export function mapProps(store) {
+	const {
+		city,
+		weather,
+		forecasts,
+		location
+	} = store
+
+	return {
+		city: city.city,
+		location: location.location.city,
+		locationError: location.error,
+		units: store.units,
+		weather: weather.weather,
+		weatherFetched: weather.fetched,
+		weatherError: weather.error,
+		forecasts: forecasts.forecasts,
+		forecastsFetched: forecasts.fetched,
+		forecastsError: forecasts.error,
+		todaysForecasts: forecasts.todaysForecasts
+	}
+}
+
+export default connect(mapProps)(Layout)
 
 Layout.propTypes = layoutTypes

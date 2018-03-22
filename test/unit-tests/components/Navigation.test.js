@@ -79,12 +79,12 @@ describe('Navigation', () => {
 	it('should click on back element', () => {
 		backElem.simulate('click')
 
-		expect(onClear.mock.calls.length).toBe(1)
+		expect(onClear).toHaveBeenCalledTimes(1)
 	})
 
 	it('should change on Switch component', () => {
 		switchComponent.simulate('change')
 
-		expect(onUnitChange.mock.calls.length).toBe(1)
+		expect(onUnitChange).toHaveBeenCalledTimes(1)
 	})
 })

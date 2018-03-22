@@ -5,6 +5,8 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import configureStore from './store'
+
+/* Import Scss entry */
 import './scss/app.scss'
 
 /* Main layout */
@@ -14,7 +16,7 @@ const { persistor, store } = configureStore()
 
 ReactDOM.render(
 	<Provider store={store}>
-		<PersistGate  persistor={persistor}>
+		<PersistGate persistor={persistor}>
 			<Layout />
 		</PersistGate>
 	</Provider>,

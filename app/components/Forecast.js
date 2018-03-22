@@ -7,7 +7,7 @@ import Icon from './Icon'
 
 export default class Forecast extends Component {
 	render() {
-		const  { title, degrees, units, code } = this.props
+		const { title, degrees, units, code } = this.props
 
 		return (
 			<dl className="forecast">

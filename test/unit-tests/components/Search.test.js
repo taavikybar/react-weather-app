@@ -85,6 +85,21 @@ describe('Search', () => {
 		expect(locationElem.text()).toEqual('use my current location')
 	})
 
+	it('should call props.onSubmit with state.value on form submit event', () => {
+		const preventDefaultMock = jest.fn()
+
+		search.setState({
+			value: 'some value'
+		})
+
+		search.simulate('submit', {
+			preventDefault: preventDefaultMock
+		})
+
+		expect(onSubmit).toHaveBeenCalledTimes(1)
+		expect(onSubmit).toHaveBeenCalledWith('some value')
+	})
+
 	it('should update the state on input change event', () => {
 		inputElem.simulate('change', {
 			target: {
@@ -97,7 +112,7 @@ describe('Search', () => {
 
 	it('should call props.onSubmit with state.value and event.preventDefault on search button click event', () => {
 		const preventDefaultMock = jest.fn()
-		
+
 		search.setState({
 			value: 'some value'
 		})
@@ -106,9 +121,9 @@ describe('Search', () => {
 			preventDefault: preventDefaultMock
 		})
 
-		expect(onSubmit.mock.calls.length).toEqual(1)
-		expect(onSubmit.mock.calls[0][0]).toEqual('some value')
-		expect(preventDefaultMock.mock.calls.length).toEqual(1)
+		expect(onSubmit).toHaveBeenCalledTimes(1)
+		expect(onSubmit).toHaveBeenLastCalledWith('some value')
+		expect(preventDefaultMock).toHaveBeenCalledTimes(1)
 	})
 
 	it('should calls props.onLocationClick and event.preventDefault on location button click event', () => {
@@ -118,7 +133,7 @@ describe('Search', () => {
 			preventDefault: preventDefaultMock
 		})
 
-		expect(onLocationClick.mock.calls.length).toEqual(1)
-		expect(preventDefaultMock.mock.calls.length).toEqual(1)
+		expect(onLocationClick).toHaveBeenCalledTimes(1)
+		expect(preventDefaultMock).toHaveBeenCalledTimes(1)
 	})
 })

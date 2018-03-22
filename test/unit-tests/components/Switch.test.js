@@ -99,7 +99,7 @@ describe('Switch', () => {
 
 		checkBoxElem = switchComponent.find('.switch__checkbox')
 
-		expect(onChange.mock.calls.length).toBe(1)
-		expect(onChange.mock.calls[0][0]).toBeTruthy()
+		expect(onChange).toHaveBeenCalledTimes(1)
+		expect(onChange).toHaveBeenLastCalledWith(true)
 	})
 })

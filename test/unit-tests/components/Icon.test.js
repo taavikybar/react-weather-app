@@ -36,16 +36,16 @@ describe('Icon', () => {
 			expect(icon.props().className).toEqual('wi wi-day-rain')
 			expect(icon.type()).toEqual('i')
 		})
-	
+
 		it('should set code class without day prefix if code > 699 && code < 800', () => {
 			icon = shallow(<Icon code="700" />)
-	
+
 			expect(icon.props().className).toEqual('wi wi-sun')
 		})
 
 		it('should set code class without day prefix if code > 899 && code < 1000', () => {
 			icon = shallow(<Icon code="900" />)
-	
+
 			expect(icon.props().className).toEqual('wi wi-moon')
 		})
 

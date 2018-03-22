@@ -18,7 +18,7 @@ export default class Icon extends Component {
 		if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)) {
 			icon = 'day-' + icon
 		}
-	
+
 		classes = `${classes}${icon}`
 
 		return <i className={classes}></i>

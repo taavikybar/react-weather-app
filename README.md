@@ -44,3 +44,11 @@ Coverage report:
 npm run coverage
 ```
 generates a line coverage report into `./coverage` folder
+
+### Linting
+
+To run [ESLint](https://eslint.org/):
+
+```
+npm run lint
+```

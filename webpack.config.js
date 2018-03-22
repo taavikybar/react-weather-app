@@ -4,7 +4,7 @@ const path = require('path'),
 	webpack = require('webpack')
 
 module.exports = {
-	entry: './app/client.js',
+	entry: './app/app.js',
 	context: __dirname,
 	output: {
 		path: path.resolve(__dirname, './build'),

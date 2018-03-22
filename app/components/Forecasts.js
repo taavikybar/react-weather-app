@@ -35,7 +35,7 @@ export default class Forecasts extends Component {
 							<p>
 								{forecast.day}
 							</p>
-							
+
 							<p className="forecasts__icon">
 								<Icon code={dayForecast.id} />
 							</p>

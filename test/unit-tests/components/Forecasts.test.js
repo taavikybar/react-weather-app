@@ -70,7 +70,7 @@ describe('Forecasts', () => {
 				forecasts={forecastsList}
 				/>
 		)
-		
+
 		forecastsDayElems = forecasts.find('.forecasts__day'),
 		forecastsIconElems = forecasts.find('.forecasts__icon'),
 		forecastsIconComponents = forecasts.find('Icon')

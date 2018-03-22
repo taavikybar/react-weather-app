@@ -11,14 +11,14 @@ export default class Weather extends Component {
 	render() {
 		const { weather, units, forecasts } = this.props,
 			currentDate = new Date()
-			
+
 		return (
 			<div className="weather">
 				<div className="weather__date">
 					<Moment date={currentDate}
 						format="dddd, MMMM Do YYYY" />
 				</div>
-				
+
 				<div className="weather__description">
 					{weather.description}
 				</div>
@@ -52,7 +52,7 @@ export default class Weather extends Component {
 								<Forecast title="Evening"
 									degrees={forecasts.evening.degrees}
 									units={units}
-									code={forecasts.evening.id} /> 
+									code={forecasts.evening.id} />
 							}
 
 							{forecasts.night &&

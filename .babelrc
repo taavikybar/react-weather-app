@@ -1,4 +1,7 @@
 {
 	"presets": ["env", "react", "stage-2"],
-	"plugins": ["transform-react-remove-prop-types", "transform-decorators-legacy"]
+	"plugins": [
+		"transform-react-remove-prop-types",
+		"transform-decorators-legacy"
+	]
 }
