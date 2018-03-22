@@ -3,7 +3,7 @@
   "description": "React+Redux weather app",
   "version": "1.0.0",
   "private": false,
-  "main": "./app/client.js",
+  "main": "./app/app.js",
   "dependencies": {
     "axios": "^0.18.0",
     "http-server": "^0.11.1",
