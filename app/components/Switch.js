@@ -39,7 +39,7 @@ export default class Switch extends Component {
 						data-on={on}
 						data-off={off}>
 					</span>
-					<span className="switch__switch"></span>
+					<span className="switch__toggle"></span>
 				</label>
 			</div>
 		)

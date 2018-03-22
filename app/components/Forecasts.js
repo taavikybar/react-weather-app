@@ -7,13 +7,13 @@ import Icon from './Icon'
 
 export default class Forecasts extends Component {
 	getDayTemperature(forecasts) {
-		const dayTimeInHours = 14
+		const midDayTime = 14
 
 		let dayForecast = {},
 			offset = 9999
 
 		forecasts.forEach(forecast => {
-			const currentOffset = Math.abs(forecast.hours - dayTimeInHours)
+			const currentOffset = Math.abs(forecast.hours - midDayTime)
 
 			if (currentOffset < offset) {
 				offset = currentOffset

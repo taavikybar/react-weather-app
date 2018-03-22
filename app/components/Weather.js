@@ -42,21 +42,21 @@ export default class Weather extends Component {
 							}
 
 							{forecasts.day &&
-								<Forecast  title="Day"
+								<Forecast title="Day"
 									degrees={forecasts.day.degrees}
 									units={units}
 									code={forecasts.day.id} />
 							}
 
 							{forecasts.evening &&
-								<Forecast  title="Evening"
+								<Forecast title="Evening"
 									degrees={forecasts.evening.degrees}
 									units={units}
 									code={forecasts.evening.id} /> 
 							}
 
 							{forecasts.night &&
-								<Forecast  title="Night"
+								<Forecast title="Night"
 									degrees={forecasts.night.degrees}
 									units={units}
 									code={forecasts.night.id} />
