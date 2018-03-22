@@ -55,7 +55,8 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "app/components/**/*.js"
+	  "app/components/**/*.js",
+	  "app/helpers/**/*.js"
     ]
   },
   "pre-commit": [
