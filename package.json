@@ -52,7 +52,8 @@
     "start": "npm run build && http-server -p 4300",
     "test": "jest",
     "test-watch": "jest --watch",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "lint": "./node_modules/.bin/eslint ."
   },
   "jest": {
     "collectCoverageFrom": [
@@ -60,6 +61,7 @@
     ]
   },
   "pre-commit": [
+    "lint",
     "test"
   ]
 }

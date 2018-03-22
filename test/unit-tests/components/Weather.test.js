@@ -135,7 +135,7 @@ describe('Weather', () => {
 					degrees: 8,
 					units: {
 						symbol: 'C'
-					}, 
+					},
 					code: 2
 				},
 				expectedDayProps = {
@@ -177,7 +177,7 @@ describe('Weather', () => {
 				/>
 			)
 			forecastsComponents = weather.find('Forecast')
-			
+
 			expect(forecastsComponents.length).toEqual(0)
 		})
 

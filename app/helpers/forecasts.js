@@ -11,7 +11,7 @@ export function parseForecasts(todaysForecasts, nightForecast) {
 
 	todaysForecasts.forEach(forecast => {
 		const hours = forecast.hours
-		
+
 		if (hours > 7 && hours < 11) {
 			daysWeather.morning = forecast
 		}

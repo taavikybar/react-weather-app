@@ -8,7 +8,9 @@
 	  "quote-props": ["error", "as-needed"],
 	  "one-var": "off",
 	  "no-shadow": ["error", { "builtinGlobals": true, "allow": ["location"] }],
-	  "semi": ["error", "never"]
+	  "semi": ["error", "never"],
+	  "no-multi-spaces": "error",
+	  "no-trailing-spaces": "error"
 	},
 	"parser": "babel-eslint",
 	"extends": [

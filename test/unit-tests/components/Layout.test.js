@@ -1,5 +1,4 @@
-/* global describe, it, beforeEach, expect, jest, afterEach */
-/* eslint-disable no-unused-vars */
+/* global describe, it, beforeEach, expect, jest, afterEach, document, setTimeout */
 
 import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
@@ -52,6 +51,8 @@ jest.mock('../../../app/actions/unitsActions', () => {
 	}
 })
 
+jest.useFakeTimers()
+
 describe('Layout', () => {
 	let layout,
 		props,
@@ -59,9 +60,16 @@ describe('Layout', () => {
 		searchComponent,
 		navigationComponent,
 		weatherComponent,
-		forecastsComponent
+		forecastsComponent,
+		appElem
 
 	beforeEach(() => {
+		appElem = {
+			className: 'app '
+		}
+
+		document.getElementById = jest.fn(() => appElem)
+
 		props = {
 			city: '',
 			location: 'Tallinn',
@@ -101,6 +109,7 @@ describe('Layout', () => {
 		fetchForecast.mockClear()
 		fetchLocation.mockClear()
 		setTemperatureUnits.mockClear()
+		document.getElementById.mockRestore()
 	})
 
 	it('should set correct class name and html tag for root element', () => {
@@ -108,53 +117,17 @@ describe('Layout', () => {
 		expect(layout.type()).toEqual('div')
 	})
 
-	describe('displayWeather is false', () => {
-		it('should render correct amount of elements with correct html', () => {
-			expect(layoutInner.length).toEqual(1)
-			expect(searchComponent.length).toEqual(1)
-	
-			expect(layoutInner.type()).toEqual('div')
-			expect(searchComponent.type()).toEqual(Search)
-		})
+	it(`should set app element class name,
+		call document.getElementById and setTimeout on component mount lifecycle event`, () => {
+		expect(document.getElementById).toHaveBeenCalledTimes(1)
+		expect(document.getElementById).toHaveBeenLastCalledWith('app')
 
-		it('should set correct props for Search component', () => {
-			expect(searchComponent.props().error).toEqual('weather error')
-		})
+		expect(setTimeout).toHaveBeenCalledTimes(2)
+		expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 100)
 
-		it('should call props.dispatch and appropriate actions with city parameter when calling submit event on search component', () => {
-			searchComponent.simulate('submit', 'Viljandi')
+		jest.runOnlyPendingTimers()
 
-			expect(props.dispatch.mock.calls.length).toEqual(3)
-
-			expect(setCity.mock.calls.length).toEqual(1)
-			expect(setCity.mock.calls[0][0]).toEqual('Viljandi')
-
-			expect(fetchWeather.mock.calls.length).toEqual(1)
-			expect(fetchWeather.mock.calls[0][0]).toEqual('Viljandi')
-
-			expect(fetchForecast.mock.calls.length).toEqual(1)
-			expect(fetchForecast.mock.calls[0][0]).toEqual('Viljandi')
-		})
-
-		it('should call props.dispatch and appropriate actions with city parameter when calling locationClick event on search component', () => {
-			layout.setProps({
-				location: 'Tartu'
-			})
-
-			searchComponent.simulate('locationClick')
-
-			expect(props.dispatch.mock.calls.length).toEqual(4)
-			expect(fetchLocation.mock.calls.length).toEqual(1)
-
-			expect(setCity.mock.calls.length).toEqual(1)
-			expect(setCity.mock.calls[0][0]).toEqual('Tartu')
-
-			expect(fetchWeather.mock.calls.length).toEqual(1)
-			expect(fetchWeather.mock.calls[0][0]).toEqual('Tartu')
-
-			expect(fetchForecast.mock.calls.length).toEqual(1)
-			expect(fetchForecast.mock.calls[0][0]).toEqual('Tartu')
-		})
+		expect(appElem.className).toEqual('app loaded')
 	})
 
 	describe('displayWeather is true', () => {
@@ -165,7 +138,7 @@ describe('Layout', () => {
 			props.weatherFetched = true
 			props.forecastsError = null
 			props.forecastsFetched = true
-	
+
 			layout = shallow( <Layout {...props} /> )
 			navigationComponent = layout.find('Navigation')
 			weatherComponent = layout.find('Weather')
@@ -214,6 +187,88 @@ describe('Layout', () => {
 					degrees: 10
 				}
 			])
+		})
+
+		it(`should call props.dispatch and appropriate actions
+			on component mount event when city is already set`, () => {
+			expect(props.dispatch).toHaveBeenCalledTimes(3)
+
+			expect(setCity).toHaveBeenCalledTimes(1)
+			expect(setCity).toHaveBeenLastCalledWith('Chicago')
+
+			expect(fetchWeather).toHaveBeenCalledTimes(1)
+			expect(fetchWeather).toHaveBeenLastCalledWith('Chicago')
+
+			expect(fetchForecast).toHaveBeenCalledTimes(1)
+			expect(fetchForecast).toHaveBeenLastCalledWith('Chicago')
+		})
+
+		it(`should call props.dispatch and appropriate actions
+			when calling unit change event on navigation component`, () => {
+			navigationComponent.simulate('unitChange', true)
+
+			expect(setTemperatureUnits).toHaveBeenCalledTimes(1)
+			expect(setTemperatureUnits).toHaveBeenLastCalledWith(true)
+			expect(props.dispatch).toHaveBeenCalledTimes(4)
+		})
+
+		it(`should call props.dispatch and appropriate actions
+			when calling clear event on navigation component`, () => {
+			navigationComponent.simulate('clear')
+
+			expect(clearCity).toHaveBeenCalledTimes(1)
+			expect(props.dispatch).toHaveBeenCalledTimes(4)
+		})
+	})
+
+	describe('displayWeather is false', () => {
+		it('should render correct amount of elements with correct html', () => {
+			expect(layoutInner.length).toEqual(1)
+			expect(searchComponent.length).toEqual(1)
+
+			expect(layoutInner.type()).toEqual('div')
+			expect(searchComponent.type()).toEqual(Search)
+		})
+
+		it('should set correct props for Search component', () => {
+			expect(searchComponent.props().error).toEqual('weather error')
+		})
+
+		it(`should call props.dispatch and appropriate actions with city parameter
+			when calling submit event on search component`, () => {
+			searchComponent.simulate('submit', 'Viljandi')
+
+			expect(props.dispatch).toHaveBeenCalledTimes(3)
+
+			expect(setCity).toHaveBeenCalledTimes(1)
+			expect(setCity).toHaveBeenLastCalledWith('Viljandi')
+
+			expect(fetchWeather).toHaveBeenCalledTimes(1)
+			expect(fetchWeather).toHaveBeenLastCalledWith('Viljandi')
+
+			expect(fetchForecast).toHaveBeenCalledTimes(1)
+			expect(fetchForecast).toHaveBeenLastCalledWith('Viljandi')
+		})
+
+		it(`should call props.dispatch and appropriate actions with city parameter
+			when calling locationClick event on search component`, () => {
+			layout.setProps({
+				location: 'Tartu'
+			})
+
+			searchComponent.simulate('locationClick')
+
+			expect(props.dispatch).toHaveBeenCalledTimes(4)
+			expect(fetchLocation).toHaveBeenCalledTimes(1)
+
+			expect(setCity).toHaveBeenCalledTimes(1)
+			expect(setCity).toHaveBeenLastCalledWith('Tartu')
+
+			expect(fetchWeather).toHaveBeenCalledTimes(1)
+			expect(fetchWeather).toHaveBeenLastCalledWith('Tartu')
+
+			expect(fetchForecast).toHaveBeenCalledTimes(1)
+			expect(fetchForecast).toHaveBeenLastCalledWith('Tartu')
 		})
 	})
 })

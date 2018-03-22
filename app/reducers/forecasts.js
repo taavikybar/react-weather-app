@@ -34,7 +34,7 @@ export default function reducer(state = {
 						degrees: Math.floor(forecast.main.temp)
 					},
 					forecastIndex = forecastsList.findIndex(forecastInCollection => forecastInCollection.date === date)
-				
+
 				/* Exclude today */
 				if (momentDate < tomorrow) {
 					todaysForecasts.push(forecastObj)

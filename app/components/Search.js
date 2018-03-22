@@ -37,7 +37,7 @@ export default class Search extends Component {
 
 	handleLocationClick(event) {
 		event.preventDefault()
-		
+
 		this.props.onLocationClick()
 	}
 

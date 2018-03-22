@@ -16,7 +16,7 @@ const { persistor, store } = configureStore()
 
 ReactDOM.render(
 	<Provider store={store}>
-		<PersistGate  persistor={persistor}>
+		<PersistGate persistor={persistor}>
 			<Layout />
 		</PersistGate>
 	</Provider>,

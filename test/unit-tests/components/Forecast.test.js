@@ -21,7 +21,7 @@ describe('Forecast', () => {
 		units = {
 			symbol: 'C'
 		}
-		
+
 		forecast = shallow(
 			<Forecast title="night"
 				degrees="10"

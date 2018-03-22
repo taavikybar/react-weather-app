@@ -79,11 +79,11 @@ export class Layout extends Component {
 				&& city
 				&& weatherFetched
 				&& forecastsFetched
-				
+
 		return (
 			<div className="layout">
 				<div className="layout__inner">
-					{displayWeather ? 
+					{displayWeather ?
 						(
 							<React.Fragment>
 								<Navigation
@@ -116,7 +116,7 @@ export class Layout extends Component {
 	}
 }
 
-export default connect((store) => {
+export function mapProps(store) {
 	const {
 		city,
 		weather,
@@ -137,6 +137,8 @@ export default connect((store) => {
 		forecastsError: forecasts.error,
 		todaysForecasts: forecasts.todaysForecasts
 	}
-})(Layout)
+}
+
+export default connect(mapProps)(Layout)
 
 Layout.propTypes = layoutTypes

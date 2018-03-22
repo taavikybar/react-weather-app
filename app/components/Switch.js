@@ -31,8 +31,8 @@ export default class Switch extends Component {
 					id={name}
 					className="switch__checkbox"
 					checked={this.state.checked}
-					onChange={this.handleChange} /> 
-					
+					onChange={this.handleChange} />
+
 				<label className="switch__label"
 					htmlFor={name}>
 					<span className="switch__inner"
