@@ -1,5 +1,4 @@
 /* global describe, it, beforeEach, expect, jest */
-/* eslint-disable no-unused-vars */
 
 import React from 'react'
 import Enzyme, {shallow} from 'enzyme'
@@ -24,15 +23,25 @@ describe('Switch', () => {
 	beforeEach(() => {
 		units = {
 			symbol: 'C'
-		},
-		onChange = jest.fn(),
-		switchComponent = shallow(<Switch name="degrees" on="F" off="C" units={units} onChange={onChange}/>),
-		checkBoxElem = switchComponent.find('.switch__checkbox'),
-		labelElem = switchComponent.find('.switch__label'),
-		switchInnerElem = labelElem.find('.switch__inner'),
-		switchToggleElem = labelElem.find('.switch__toggle'),
-		checkBoxElemProps = checkBoxElem.props(),
-		labelElemProps = labelElem.props(),
+		}
+
+		onChange = jest.fn()
+
+		switchComponent = shallow(
+			<Switch name="degrees"
+				on="F"
+				off="C"
+				units={units}
+				onChange={onChange}
+			/>
+		)
+
+		checkBoxElem = switchComponent.find('.switch__checkbox')
+		labelElem = switchComponent.find('.switch__label')
+		switchInnerElem = labelElem.find('.switch__inner')
+		switchToggleElem = labelElem.find('.switch__toggle')
+		checkBoxElemProps = checkBoxElem.props()
+		labelElemProps = labelElem.props()
 		switchInnerElemProps = switchInnerElem.props()
 	})
 

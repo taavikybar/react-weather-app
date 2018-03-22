@@ -5,6 +5,7 @@ import Enzyme, {shallow} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 import Forecasts from '../../../app/components/Forecasts'
+import Icon from '../../../app/components/Icon'
 
 Enzyme.configure({adapter: new Adapter()})
 
@@ -58,11 +59,18 @@ describe('Forecasts', () => {
 					}
 				]
 			}
-		],
+		]
+
 		units = {
 			symbol: 'C'
-		},
-		forecasts = shallow(<Forecasts units={units} forecasts={forecastsList} />),
+		}
+
+		forecasts = shallow(
+			<Forecasts units={units}
+				forecasts={forecastsList}
+				/>
+		)
+		
 		forecastsDayElems = forecasts.find('.forecasts__day'),
 		forecastsIconElems = forecasts.find('.forecasts__icon'),
 		forecastsIconComponents = forecasts.find('Icon')
@@ -77,6 +85,10 @@ describe('Forecasts', () => {
 		expect(forecastsDayElems.length).toEqual(2)
 		expect(forecastsIconElems.length).toEqual(2)
 		expect(forecastsIconComponents.length).toEqual(2)
+
+		expect(forecastsDayElems.first().type()).toEqual('li')
+		expect(forecastsIconElems.first().type()).toEqual('p')
+		expect(forecastsIconComponents.first().type()).toEqual(Icon)
 	})
 
 	it('should set the correct day titles', () => {

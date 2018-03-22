@@ -11,7 +11,7 @@ export default class Weather extends Component {
 	render() {
 		const { weather, units, forecasts } = this.props,
 			currentDate = new Date()
-
+			
 		return (
 			<div className="weather">
 				<div className="weather__date">
