@@ -12,10 +12,10 @@ export default class Forecast extends Component {
 		return (
 			<dl className="forecast">
 				<dt>{title}</dt>
-				<dl>
+				<dd>
 					<p className="forecast__degrees">{parseDegrees(degrees, units.symbol)}</p>
 					<Icon code={code} />
-				</dl>
+				</dd>
 			</dl>
 		)
 	}

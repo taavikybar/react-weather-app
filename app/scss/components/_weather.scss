@@ -13,7 +13,7 @@
 	}
 
 	&__current {
-		@include margin-top;
+		@include margin-top(2);
 
 		display: flex;
 
@@ -31,7 +31,7 @@
 		color: $red;
 
 		@include mobile() {
-			@include margin-right;
+			@include margins;
 		}
 	}
 
@@ -43,7 +43,7 @@
 		color: $red;
 
 		@include mobile() {
-			@include margin-right;
+			@include margins;
 		}
 	}
 
