@@ -52,3 +52,21 @@ To run [ESLint](https://eslint.org/):
 ```
 npm run lint
 ```
+
+### Documentation
+To re-generate documentation using [jsdoc-to-markdown](https://github.com/jsdoc2md/jsdoc-to-markdown) run:
+
+```
+npm run create-docs
+```
+NB! It will delete all the docs files first
+
+### Components
+- [Layout](docs/components/Layout.md)
+- [Search](docs/components/Search.md)
+- [Navigation](docs/components/Navigation.md)
+- [Weather](docs/components/Weather.md)
+- [Forecasts](docs/components/Forecasts.md)
+- [Forecast](docs/components/Forecast.md)
+- [Switch](docs/components/Switch.md)
+- [Icon](docs/components/Icon.md)

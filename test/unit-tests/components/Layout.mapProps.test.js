@@ -14,14 +14,12 @@ describe('mapProps', () => {
 			location: {
 				location: {
 					city: 'Tartu'
-				},
-				error: 'location error'
+				}
 			},
 			units: 'C',
 			weather: {
 				weather: 'rainy',
-				fetched: true,
-				error: 'weather error'
+				fetched: true
 			},
 			forecasts: {
 				forecasts: [
@@ -33,24 +31,24 @@ describe('mapProps', () => {
 					}
 				],
 				fetched: true,
-				error: 'forecasts error',
 				todaysForecasts: {
 					day: 'warm',
 					night: 'cold'
 				}
+			},
+			error: {
+				error: 'Fetching error'
 			}
 		}
 	})
 
-	it('', () => {
+	it('should return correct props', () => {
 		const expectedProps = {
 			city: 'Tallinn',
 			location: 'Tartu',
-			locationError: 'location error',
 			units: 'C',
 			weather: 'rainy',
 			weatherFetched: true,
-			weatherError: 'weather error',
 			forecasts: [
 				{
 					degrees: 4
@@ -60,11 +58,11 @@ describe('mapProps', () => {
 				}
 			],
 			forecastsFetched: true,
-			forecastsError: 'forecasts error',
 			todaysForecasts: {
 				day: 'warm',
 				night: 'cold'
-			}
+			},
+			error: 'Fetching error'
 		}
 
 		expect(mapProps(store)).toEqual(expectedProps)

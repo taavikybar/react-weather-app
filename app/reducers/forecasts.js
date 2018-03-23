@@ -2,7 +2,6 @@
 /* Reducer for actions concerning weather forecasts data */
 
 import moment from 'moment'
-import { capitalize } from '../utils'
 import { parseForecasts } from '../helpers/forecasts'
 
 export default function reducer(state = {
@@ -63,13 +62,6 @@ export default function reducer(state = {
 				forecasts: forecastsList,
 				fetched: true,
 				error: null
-			}
-		}
-
-		case 'FETCH_FORECASTS_REJECTED': {
-			return {
-				...state,
-				error: capitalize(payload.response.data.message)
 			}
 		}
 

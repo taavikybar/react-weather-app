@@ -10,7 +10,7 @@ export function fetchLocation(handler) {
 		payload: axios.get(geoIpApi.url)
 	}).catch(error => {
 		dispatch({
-			type: 'ERROR',
+			type: 'FETCH_LOCATION_ERROR',
 			payload: error
 		})
 	}).then(handler)

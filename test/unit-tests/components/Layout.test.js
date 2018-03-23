@@ -73,13 +73,11 @@ describe('Layout', () => {
 		props = {
 			city: '',
 			location: 'Tallinn',
-			locationError: 'location error',
 			units: 'C',
 			weather: {
 				rainy: true
 			},
 			weatherFetched: false,
-			weatherError: 'weather error',
 			forecasts: [
 				{
 					degrees: 4
@@ -93,7 +91,7 @@ describe('Layout', () => {
 				night: 'cold'
 			},
 			forecastsFetched: false,
-			forecastsError: 'forecasts error',
+			error: 'Fetching error',
 			dispatch: jest.fn()
 		}
 
@@ -133,10 +131,8 @@ describe('Layout', () => {
 	describe('displayWeather is true', () => {
 		beforeEach(() => {
 			props.city = 'Chicago'
-			props.locationError = null
-			props.weatherError = null
+			props.error = null
 			props.weatherFetched = true
-			props.forecastsError = null
 			props.forecastsFetched = true
 
 			layout = shallow( <Layout {...props} /> )
@@ -231,7 +227,7 @@ describe('Layout', () => {
 		})
 
 		it('should set correct props for Search component', () => {
-			expect(searchComponent.props().error).toEqual('weather error')
+			expect(searchComponent.props().error).toEqual('Fetching error')
 		})
 
 		it(`should call props.dispatch and appropriate actions with city parameter

@@ -1,6 +1,20 @@
 import React, { Component } from 'react'
 import { searchTypes } from '../types'
 
+/**
+ * Component that displays a form with a search input, search button,
+ * fetching errors and text with a link to offer using current location
+ *
+ * PROPERTIES
+ * @param {Function} onSubmit - function to call when submitting the form
+ * @param {Function} onLocationClick - function to call when clicking
+ * the "use current location" link
+ * @param {string} error - error text to display
+ *
+ * @export Search
+ * @class Search
+ * @extends {React.Component}
+ */
 export default class Search extends Component {
 	constructor(props) {
 		super(props)

@@ -7,6 +7,21 @@ import { weatherTypes } from '../types'
 import Icon from './Icon'
 import Forecast from './Forecast'
 
+/**
+ * Component that displays formatted current date,
+ * weather description, current weather degrees and weather icon
+ * and all possible weather forecasts for the current day
+ *
+ * PROPERTIES
+ * @param {Object} weather - weather object with description, degrees and icon code
+ * @param {Object} units - temperature units object
+ * @param {Object} forecasts - current day forecasts object where each key
+ * contains a specific part of the day forecast (morning|day|evening|night)
+ *
+ * @export Weather
+ * @class Weather
+ * @extends {React.Component}
+ */
 export default class Weather extends Component {
 	render() {
 		const { weather, units, forecasts } = this.props,
