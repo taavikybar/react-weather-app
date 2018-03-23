@@ -1,6 +1,22 @@
 import React, { Component } from 'react'
 import { switchTypes } from '../types'
 
+/**
+ * Component thatdisplays a toggle switch to toggle
+ * between two values
+ *
+ * PROPERTIES
+ * @param {string} name - name of switch to use for binding together
+ * the input and the label
+ * @param {string} on - text of the switch when in on position
+ * @param {string} off - text of the switch when in off position
+ * @param {Function} onChange - function to call when the switch changes
+ * @param {Object} units - temperature units object
+ *
+ * @export Switch
+ * @class Switch
+ * @extends {React.omponent}
+ */
 export default class Switch extends Component {
 	constructor(props) {
 		super(props)

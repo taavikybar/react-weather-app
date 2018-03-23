@@ -32,13 +32,6 @@ export default function reducer(state = {
 			}
 		}
 
-		case 'FETCH_WEATHER_REJECTED': {
-			return {
-				...state,
-				error: capitalize(payload.response.data.message)
-			}
-		}
-
 		case 'CLEAR_CITY': {
 			return {
 				...state,

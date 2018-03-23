@@ -3,14 +3,12 @@ import PropTypes from 'prop-types'
 export default {
 	city: PropTypes.string,
 	location: PropTypes.string,
-	locationError: PropTypes.string,
-	units: PropTypes.string,
+	units: PropTypes.object,
 	weather: PropTypes.object,
 	weatherFetched: PropTypes.bool,
-	weatherError: PropTypes.any,
 	forecasts: PropTypes.array,
 	forecastsFetched: PropTypes.bool,
-	forecastsError: PropTypes.any,
 	todaysForecasts: PropTypes.object,
+	error: PropTypes.string,
 	dispatch: PropTypes.func
 }

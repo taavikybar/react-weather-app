@@ -9,7 +9,7 @@ export function fetchWeather(city) {
 		payload: axios.get(`${weatherApi.url}weather?q=${city}&appid=${weatherApi.key}${weatherApi.options}`)
 	}).catch(error => {
 		dispatch({
-			type: 'ERROR',
+			type: 'FETCH_WEATHER_ERROR',
 			payload: error
 		})
 	})

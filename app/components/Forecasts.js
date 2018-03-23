@@ -5,6 +5,19 @@ import { forecastsTypes } from '../types'
 /* Components */
 import Icon from './Icon'
 
+/**
+ * Component displays forecasts list
+ * with name of the day, weather icon and degrees
+ *
+ * PROPERTIES
+ * @param {Array} forecasts - collection of forecasts with day name
+ * and a collection of forecasts for the day
+ * @param {Object} units - temperature units object
+ *
+ * @export Forecasts
+ * @class Forecasts
+ * @extends {React.Component}
+ */
 export default class Forecasts extends Component {
 	getDayTemperature(forecasts) {
 		const midDayTime = 14

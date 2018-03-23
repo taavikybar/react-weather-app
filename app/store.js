@@ -17,7 +17,7 @@ const env = process.env.NODE_ENV,
 
 let middlewares = [promise(), thunk]
 
-if (env === 'development') {
+if (env === '1development') {
 	middlewares = [...middlewares, createLogger()]
 }
 

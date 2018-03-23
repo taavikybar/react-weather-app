@@ -17,6 +17,32 @@ import Weather from './Weather'
 import Forecasts from './Forecasts'
 import Search from './Search'
 
+/**
+ * Main layout component that is hydrated with Redux store
+ * and displays Navigation, Weather and Forecasts components
+ * if city is selected or Search component if not with appropriate
+ * callback functions.
+ * Handles dispatching all the actions to Redux store.
+ *
+ * PROPERTIES
+ * @param {string} city - city to search weather for
+ * @param {string} location - name of the current location
+ * @param {Object} units - temperature units object
+ * @param {Object} weather - fetched weather object consisting
+ *  * of description, degrees and icon code
+ * @param {boolean} weatherFetched - if weather is fetched
+ * @param {Array} forecasts - collection of forecasts with day name
+ * and a collection of forecasts for the day
+ * @param {boolean} forecastsFetched - if forecasts are fetched
+ * @param {Object} todaysForecasts - an object containing forecasts for
+ * parts of the current day
+ * @param {string} error - error text if fetching returns an error
+ * @param {Function} dispatch - function to call for dispatching action to Redux store
+ *
+ * @export Layout
+ * @class Layout
+ * @extends {React.Component}
+ */
 export class Layout extends Component {
 	constructor(props) {
 		super(props)
@@ -66,16 +92,11 @@ export class Layout extends Component {
 				weather,
 				forecasts,
 				weatherFetched,
-				weatherError,
 				forecastsFetched,
-				forecastsError,
-				locationError,
-				todaysForecasts
+				todaysForecasts,
+				error
 			} = this.props,
-			errorText = weatherError || forecastsError || locationError,
-			displayWeather = !locationError
-				&& !weatherError
-				&& !forecastsError
+			displayWeather = !error
 				&& city
 				&& weatherFetched
 				&& forecastsFetched
@@ -106,7 +127,7 @@ export class Layout extends Component {
 								<Search
 									onSubmit={(change) => this.handleSearch(change)}
 									onLocationClick={() => this.handleLocation()}
-									error={errorText} />
+									error={error} />
 							</React.Fragment>
 						)
 					}
@@ -121,21 +142,20 @@ export function mapProps(store) {
 		city,
 		weather,
 		forecasts,
-		location
+		location,
+		error
 	} = store
 
 	return {
 		city: city.city,
 		location: location.location.city,
-		locationError: location.error,
 		units: store.units,
 		weather: weather.weather,
 		weatherFetched: weather.fetched,
-		weatherError: weather.error,
 		forecasts: forecasts.forecasts,
 		forecastsFetched: forecasts.fetched,
-		forecastsError: forecasts.error,
-		todaysForecasts: forecasts.todaysForecasts
+		todaysForecasts: forecasts.todaysForecasts,
+		error: error.error
 	}
 }
 

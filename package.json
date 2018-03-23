@@ -6,6 +6,7 @@
   "main": "./app/app.js",
   "dependencies": {
     "axios": "^0.18.0",
+    "fs-extra": "^5.0.0",
     "http-server": "^0.11.1",
     "moment": "^2.21.0",
     "prop-types": "^15.6.1",
@@ -36,6 +37,7 @@
     "eslint-plugin-react": "^7.7.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "jest": "^22.4.2",
+    "jsdoc-to-markdown": "^4.0.1",
     "node-sass": "^4.7.2",
     "pre-commit": "^1.2.2",
     "react-test-renderer": "^16.2.0",
@@ -53,7 +55,8 @@
     "test": "jest",
     "test-watch": "jest --watch",
     "coverage": "jest --coverage",
-    "lint": "./node_modules/.bin/eslint ."
+    "lint": "./node_modules/.bin/eslint .",
+    "create-docs": "chmod 775 ./scripts/generate-docs.js && node ./scripts/generate-docs.js"
   },
   "jest": {
     "collectCoverageFrom": [

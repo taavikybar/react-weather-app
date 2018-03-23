@@ -5,6 +5,21 @@ import { capitalize } from '../utils'
 /* Components */
 import Switch from './Switch'
 
+/**
+ * Component displays navigation area
+ * with back arrow button, city name as title
+ * and degrees units switch
+ *
+ * PROPERTIES
+ * @param {string} city - name of the city to display as title
+ * @param {Function} onClear - function to call when clicking the back arrow button
+ * @param {Function} onUnitChange - function to call when using the degrees units switch
+ * @param {Object} units - temperature units object
+ *
+ * @export Navigation
+ * @class Navigation
+ * @extends {React.Component}
+ */
 export default class Navigation extends Component {
 	render() {
 		const { city, onClear, onUnitChange, units } = this.props
